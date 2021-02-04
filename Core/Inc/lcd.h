@@ -5,6 +5,7 @@
  *      Author: Тлехас Алий
  *      lcd library 4 bit mode and 16xN
  */
+#pragma once
 
 #ifndef INC_LCD_H_
 #define INC_LCD_H_

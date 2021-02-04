@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "iar",
+			"command": "rebuild",
+			"project": "${command:iar-settings.project-file}",
+			"config": "${command:iar-settings.project-configuration}",
+			"builder": "${command:iar-settings.workbench}/common/bin/IarBuild.exe",
+			"label": "iar: Iar Rebuild",
+			"problemMatcher": [
+				"$iar-cc",
+				"$iar-linker"
+			]
+		}
+	]
+}

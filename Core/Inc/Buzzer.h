@@ -5,6 +5,8 @@
  *      Author: Тлехас Алий
  */
 
+#pragma once
+
 #ifndef INC_BUZZER_H_
 #define INC_BUZZER_H_
 

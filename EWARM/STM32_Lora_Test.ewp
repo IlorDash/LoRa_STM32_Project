@@ -405,7 +405,7 @@
                 </option>
                 <option>
                     <name>IccLang</name>
-                    <state>0</state>
+                    <state>2</state>
                 </option>
                 <option>
                     <name>IccCDialect</name>
@@ -1079,13 +1079,25 @@
             <group>
                 <name>Core</name>
                 <file>
-                    <name>$PROJ_DIR$\..\Core\Src\Buzzer.c</name>
+                    <name>$PROJ_DIR$\..\Core\Src\Buzzer.cpp</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\..\Core\Src\lcd.c</name>
+                    <name>$PROJ_DIR$\..\Core\Inc\Buzzer.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\..\Core\Src\main.c</name>
+                    <name>$PROJ_DIR$\..\Core\Src\lcd.cpp</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\Core\Inc\lcd.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\Core\Src\main.cpp</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\Core\Inc\main.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\Core\Inc\stm32f1xx_hal_conf.h</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\..\Core\Src\stm32f1xx_hal_msp.c</name>
@@ -1094,7 +1106,13 @@
                     <name>$PROJ_DIR$\..\Core\Src\stm32f1xx_it.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\..\Core\Src\SX1278.c</name>
+                    <name>$PROJ_DIR$\..\Core\Inc\stm32f1xx_it.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\Core\Src\SX1278.cpp</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\Core\Inc\SX1278.h</name>
                 </file>
             </group>
         </group>

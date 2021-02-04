@@ -6,6 +6,8 @@
  * https://github.com/realspinner/SX1278_LoRa
  */
 
+#pragma once
+
 #ifndef __SX1278_H__
 #define __SX1278_H__
 
