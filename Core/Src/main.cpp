@@ -34,6 +34,8 @@
 /* USER CODE BEGIN PD */
 #define MENU_COUNT 4
 #define MESSAGES_COUNT 4
+
+#define TEST_REG_MESSAGE_INDEX 2
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -53,10 +55,10 @@ TIM_HandleTypeDef htim6;
 UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
-const char *menu_str[] = {"RX Lora", "TX Lora", "Test Reg", "Menu 4"};
+const char *menu_str[] = {"RX Lora", "TX Lora", "Test Reg", "Tx messages"};
 
-char *Tx_messages[] = {"Hello, from LoRa", "LoRa TX test", "Test Reg:", "73 de IlorDash!"};
-char *txBuff = "Hello, from LoRa";
+char *Tx_messages[] = {"Hello,from LoRa", "LoRa TX test", "Test Reg:", "73 de IlorDash!"};
+char txBuff[32] = "Hello, from LoRa";
 
 char rxBuff[512];
 
@@ -86,10 +88,10 @@ void Print_Menu(Lcd_HandleTypeDef *lcd, uint8_t page, uint8_t menu) {
 void Print_MessagesMenu(Lcd_HandleTypeDef *lcd, uint8_t page, uint8_t message) {
 	Lcd_clear(lcd);
 	Lcd_cursor(lcd, 0, 0);
-	char *printMessage;
+	char printMessage[32] = {0};
 
-	if ((2 * page - 2) == 2) {
-		uint8_t test = SX1278_SPIRead(&SX1278, 0x42);
+	if ((2 * page - 2) == TEST_REG_MESSAGE_INDEX) {
+		int test = SX1278_SPIRead(&SX1278, 0x42);
 		sprintf(printMessage, "%s %d", Tx_messages[2 * page - 2], test);
 	} else {
 		sprintf(printMessage, "%s", Tx_messages[2 * page - 2]);
@@ -97,7 +99,7 @@ void Print_MessagesMenu(Lcd_HandleTypeDef *lcd, uint8_t page, uint8_t message) {
 	Lcd_string(lcd, printMessage);
 	Lcd_cursor(lcd, 1, 0);
 
-	if ((2 * page - 1) == 2) {
+	if ((2 * page - 1) == TEST_REG_MESSAGE_INDEX) {
 		uint8_t test = SX1278_SPIRead(&SX1278, 0x42);
 		sprintf(printMessage, "%s %d", Tx_messages[2 * page - 1], test);
 	} else {
@@ -265,7 +267,7 @@ int main(void) {
 
 						Lcd_cursor(&lcd, 1, 0);
 						Lcd_printf(&lcd, "%s", txBuff);
-						HAL_GPIO_WritePin(HL4_GPIO_Port, HL4_Pin, GPIO_PIN_RESET);
+						HAL_GPIO_WritePin(HL3_GPIO_Port, HL3_Pin, GPIO_PIN_RESET);
 
 						HAL_Delay(500);
 					}
@@ -282,36 +284,46 @@ int main(void) {
 					break;
 				case 4:
 					Print_MessagesMenu(&lcd, messagePage, messageNum);
+					bool isMessageChoosed = false;
+					while (!isMessageChoosed) {
+						if (HAL_GPIO_ReadPin(GPIOC, but_1_Pin)) // change choosing messagePage
+						{
 
-					if (HAL_GPIO_ReadPin(GPIOC, but_1_Pin)) // change choosing messagePage
-					{
+							while (HAL_GPIO_ReadPin(GPIOC, but_1_Pin)) {
+							}
 
-						while (HAL_GPIO_ReadPin(GPIOC, but_1_Pin)) {
-						}
+							// buzzer(600, 4);
+							HAL_Delay(20);
+							// buzzer(600, 0);
+							messageNum++;
 
-						// buzzer(600, 4);
-						HAL_Delay(20);
-						// buzzer(600, 0);
-						messageNum++;
-
-						if (messageNum > MESSAGES_COUNT) {
-							messageNum = 1;
-							messagePage = 1;
-						}
-						if (messagePage < messageNum / 2 + messageNum % 2) {
-							messagePage++;
-							if (messagePage > messages_count)
+							if (messageNum > MESSAGES_COUNT) {
+								messageNum = 1;
 								messagePage = 1;
+							}
+							if (messagePage < messageNum / 2 + messageNum % 2) {
+								messagePage++;
+								if (messagePage > messages_count)
+									messagePage = 1;
+							}
+
+							Print_MessagesMenu(&lcd, messagePage, messageNum);
+
+						} else if (HAL_GPIO_ReadPin(GPIOC, but_2_Pin)) { // choose messageNum
+
+							while (HAL_GPIO_ReadPin(GPIOC, but_2_Pin)) {
+							}
+
+							if ((messageNum - 1) == TEST_REG_MESSAGE_INDEX) {
+								int test = SX1278_SPIRead(&SX1278, 0x42);
+								sprintf(txBuff, "%s %d", Tx_messages[messageNum - 1], test);
+							} else {
+								sprintf(txBuff, "%s", Tx_messages[messageNum - 1]);
+							}
+							isMessageChoosed = true;
 						}
-
-						Print_MessagesMenu(&lcd, messagePage, messageNum);
-
-					} else if (HAL_GPIO_ReadPin(GPIOC, but_2_Pin)) { // choose messageNum
-
-						while (HAL_GPIO_ReadPin(GPIOC, but_2_Pin)) {
-						}
-						txBuff = Tx_messages[messageNum];
 					}
+					Print_Menu(&lcd, menuPage, menuNum);
 					break;
 			}
 		}

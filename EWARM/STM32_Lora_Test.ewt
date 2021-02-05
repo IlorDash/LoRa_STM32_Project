@@ -1439,7 +1439,7 @@
                     <name>$PROJ_DIR$\..\Core\Inc\Buzzer.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\..\Core\Src\lcd.cpp</name>
+                    <name>$PROJ_DIR$\..\Core\Src\lcd.c</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\..\Core\Inc\lcd.h</name>
@@ -1463,7 +1463,7 @@
                     <name>$PROJ_DIR$\..\Core\Inc\stm32f1xx_it.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\..\Core\Src\SX1278.cpp</name>
+                    <name>$PROJ_DIR$\..\Core\Src\SX1278.c</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\..\Core\Inc\SX1278.h</name>

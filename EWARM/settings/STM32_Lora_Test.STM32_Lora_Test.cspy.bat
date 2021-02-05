@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "C:\Users\Ilya\Documents\Projects\STM32_Lora_Test\EWARM\settings\STM32_Lora_Test.STM32_Lora_Test.general.xcl" --backend -f "C:\Users\Ilya\Documents\Projects\STM32_Lora_Test\EWARM\settings\STM32_Lora_Test.STM32_Lora_Test.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "C:\Users\Ilya\Documents\Projects\LoRa_STM32_Project\EWARM\settings\STM32_Lora_Test.STM32_Lora_Test.general.xcl" --backend -f "C:\Users\Ilya\Documents\Projects\LoRa_STM32_Project\EWARM\settings\STM32_Lora_Test.STM32_Lora_Test.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "C:\Users\Ilya\Documents\Projects\STM32_Lora_Test\EWARM\settings\STM32_Lora_Test.STM32_Lora_Test.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\Ilya\Documents\Projects\STM32_Lora_Test\EWARM\settings\STM32_Lora_Test.STM32_Lora_Test.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "C:\Users\Ilya\Documents\Projects\LoRa_STM32_Project\EWARM\settings\STM32_Lora_Test.STM32_Lora_Test.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\Ilya\Documents\Projects\LoRa_STM32_Project\EWARM\settings\STM32_Lora_Test.STM32_Lora_Test.driver.xcl" 
 
 @echo off 
 :end

@@ -404,11 +404,11 @@
                 "__weak="
             ],
             "includePath": [
-                "c:\\Users\\Ilya\\Documents\\Projects\\STM32_Lora_Test\\Core\\Inc",
-                "c:\\Users\\Ilya\\Documents\\Projects\\STM32_Lora_Test\\Drivers\\STM32F1xx_HAL_Driver\\Inc",
-                "c:\\Users\\Ilya\\Documents\\Projects\\STM32_Lora_Test\\Drivers\\STM32F1xx_HAL_Driver\\Inc\\Legacy",
-                "c:\\Users\\Ilya\\Documents\\Projects\\STM32_Lora_Test\\Drivers\\CMSIS\\Device\\ST\\STM32F1xx\\Include",
-                "c:\\Users\\Ilya\\Documents\\Projects\\STM32_Lora_Test\\Drivers\\CMSIS\\Include",
+                "c:\\Users\\Ilya\\Documents\\Projects\\LoRa_STM32_Project\\Core\\Inc",
+                "c:\\Users\\Ilya\\Documents\\Projects\\LoRa_STM32_Project\\Drivers\\STM32F1xx_HAL_Driver\\Inc",
+                "c:\\Users\\Ilya\\Documents\\Projects\\LoRa_STM32_Project\\Drivers\\STM32F1xx_HAL_Driver\\Inc\\Legacy",
+                "c:\\Users\\Ilya\\Documents\\Projects\\LoRa_STM32_Project\\Drivers\\CMSIS\\Device\\ST\\STM32F1xx\\Include",
+                "c:\\Users\\Ilya\\Documents\\Projects\\LoRa_STM32_Project\\Drivers\\CMSIS\\Include",
                 "C:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 8.4\\arm\\inc",
                 "C:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 8.4\\arm\\inc\\c",
                 "C:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 8.4\\arm\\inc\\cpp"
