@@ -38,6 +38,7 @@ extern "C" {
 #include "lcd.h"
 #include "SX1278.h"
 #include "Buzzer.h"
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

@@ -262,7 +262,7 @@ int main(void) {
 						HAL_GPIO_WritePin(HL3_GPIO_Port, HL3_Pin, GPIO_PIN_SET);
 						Lcd_clear(&lcd);
 						Lcd_cursor(&lcd, 0, 0);
-						loraStatus = SX1278_LoRaTxPacket(&SX1278, (uint8_t *)txBuff, 10, 2000);
+						loraStatus = SX1278_LoRaTxPacket(&SX1278, (uint8_t *)txBuff, strlen(txBuff), 2000);
 						Lcd_printf(&lcd, "Transmit: %d", loraStatus);
 
 						Lcd_cursor(&lcd, 1, 0);

@@ -932,7 +932,7 @@
                     <item>TIMx-&gt;CR1</item>
                     <item>uwTick</item>
                     <item>strlen(txBuff)</item>
-                    <item></item>
+                    <item />
                 </expressions>
                 <col-names>
                     <item>Expression</item>
@@ -1019,7 +1019,7 @@
             <IarPane-34104>
                 <expressions>
                     <item>txBuff</item>
-                    <item></item>
+                    <item />
                 </expressions>
                 <col-names>
                     <item>Expression</item>
